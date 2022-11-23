@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AlgoSigner dApp</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/tomorrow.min.css">
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="assets/style.css">
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="index.html"><img src="assets/logotype.png" height="28"></a>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="payment.html">Payment Tx</a>
+        <a class="navbar-item" href="asset-create.html">Asset Create Tx</a>
+        <a class="navbar-item" href="asset-optin.html">Asset Opt-in Tx</a>
+      </div>
+
+      <div class="navbar-end">
+        <a class="navbar-item" target="_blank" rel="noopener noreferrer" href="https://github.com/PureStake/algosigner/blob/develop/docs/dApp-integration.md">
+          Documentation
+        </a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- CHECK -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Check AlgoSigner
+        <a class="button is-small is-pulled-right" target="_blank" rel="noopener noreferrer" href="https://github.com/PureStake/algosigner-dapp-example/blob/master/index.html#L251">
+          <span class="icon is-small">
+            <i class="fab fa-github"></i>
+          </span>
+          <span>See code on GitHub</span>
+        </a>
+      </h1>
+      <p class="subtitle">
+        Check if AlgoSigner library is available
+      </p>
+
+      <div class="columns">
+        <div class="column">
+          <button class="button is-primary is-fullwidth" id="check">Check</button>
+          <pre class="mt-2"><code class="JSON" id="check-code">response</code></pre>
+        </div>
+        <div class="column">
+<pre><code class="js">if (typeof <b>AlgoSigner</b> !== 'undefined') {
+  document.getElementById('check-code').innerHTML = 'AlgoSigner is installed.';
+} else {
+  document.getElementById('check-code').innerHTML = 'AlgoSigner is NOT installed.';
+};</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /CHECK -->
+
+  <!-- CONNECT -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Connect
+        <a class="button is-small is-pulled-right" target="_blank" rel="noopener noreferrer" href="https://github.com/PureStake/algosigner-dapp-example/blob/master/index.html#L261">
+          <span class="icon is-small">
+            <i class="fab fa-github"></i>
+          </span>
+          <span>See code on GitHub</span>
+        </a>
+      </h1>
+      <p class="subtitle">
+        Connect to AlgoSigner
+      </p>
+
+      <div class="columns">
+        <div class="column">
+          <button class="button is-primary is-fullwidth" id="connect">Connect</button>
+          <pre class="mt-2"><code class="JSON" id="connect-code">response</code></pre>
+        </div>
+        <div class="column">
+<pre><code class="js"><b>AlgoSigner</b>.connect()
+.then((d) => {
+  document.getElementById('connect-code').innerHTML = JSON.stringify(d);
+})
+.catch((e) => {
+  console.error(e);
+  document.getElementById('connect-code').innerHTML = JSON.stringify(e);
+});</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /CONNECT -->
+  
+  <!-- ACCOUNTS -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Get TestNet Accounts
+        <a class="button is-small is-pulled-right" target="_blank" rel="noopener noreferrer" href="https://github.com/PureStake/algosigner-dapp-example/blob/master/index.html#L277">
+          <span class="icon is-small">
+            <i class="fab fa-github"></i>
+          </span>
+          <span>See code on GitHub</span>
+        </a>
+      </h1>
+      <p class="subtitle">
+        Gets the users TestNet accounts
+      </p>
+
+      <div class="columns">
+        <div class="column">
+          <button class="button is-primary is-fullwidth" id="accounts">Get Accounts</button>
+          <pre class="mt-2"><code id="accounts-code">response</code></pre>
+        </div>
+        <div class="column">
+<pre><code class="js"><b>AlgoSigner</b>.accounts({
+  ledger: 'TestNet'
+})
+.then((d) => {
+  document.getElementById('accounts-code').innerHTML = JSON.stringify(d);
+})
+.catch((e) => {
+  console.error(e);
+  document.getElementById('accounts-code').innerHTML = JSON.stringify(e);
+});</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /ACCOUNTS -->
+
+  <!-- STATUS -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Status
+        <a class="button is-small is-pulled-right" target="_blank" rel="noopener noreferrer" href="https://github.com/PureStake/algosigner-dapp-example/blob/master/index.html#L296">
+          <span class="icon is-small">
+            <i class="fab fa-github"></i>
+          </span>
+          <span>See code on GitHub</span>
+        </a>
+      </h1>
+      <p class="subtitle">
+        Query AlgoD to get TestNet status
+      </p>
+
+      <div class="columns">
+        <div class="column">
+          <button class="button is-primary is-fullwidth" id="status">Status</button>
+          <pre class="mt-2"><code class="JSON" id="status-code">response</code></pre>
+        </div>
+        <div class="column">
+<pre><code class="js"><b>AlgoSigner</b>.algod({
+  ledger: 'TestNet',
+  path: '/v2/status'
+})
+.then((d) => {
+  document.getElementById('status-code').innerHTML = JSON.stringify(d);
+})
+.catch((e) => {
+  console.error(e);
+  document.getElementById('status-code').innerHTML = JSON.stringify(e);
+});</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /STATUS -->
+
+  <!-- ASSETS -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Get Assets from Indexer
+        <a class="button is-small is-pulled-right" target="_blank" rel="noopener noreferrer" href="https://github.com/PureStake/algosigner-dapp-example/blob/master/index.html#315">
+          <span class="icon is-small">
+            <i class="fab fa-github"></i>
+          </span>
+          <span>See code on GitHub</span>
+        </a>
+      </h1>
+      <p class="subtitle">
+        Query Indexer to get TestNet assets
+      </p>
+
+      <div class="columns">
+        <div class="column">
+          <div class="field">
+            <p class="control has-icons-left">
+              <input class="input" id="name" placeholder="Name">
+              <span class="icon is-small is-left">
+                <i class="fas fa-signature"></i>
+              </span>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control has-icons-left">
+              <input class="input" id="limit" placeholder="Limit">
+              <span class="icon is-small is-left">
+                <i class="fas fa-list"></i>
+              </span>
+            </p>
+          </div>
+          <button class="button is-primary is-fullwidth" id="assets">Assets</button>
+          <pre class="mt-2"><code class="JSON" id="assets-code">response</code></pre>
+        </div>
+        <div class="column">
+<pre><code class="js">const name = document.getElementById('name').value;
+const limit = document.getElementById('limit').value;
+
+AlgoSigner.indexer({
+  ledger: 'TestNet',
+  path: `/v2/assets?name=${name}&limit=${limit}`,
+})
+.then((d) => {
+  document.getElementById('assets-code').innerHTML = JSON.stringify(d);
+})
+.catch((e) => {
+  console.error(e);
+  document.getElementById('assets-code').innerHTML = JSON.stringify(e);
+});</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /ASSETS -->
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      by <a target="_blank" rel="noopener noreferrer" href="https://purestake.com">
+        <img src="../assets/ps-logo.png" height="28">
+      </a>
+    </div>
+  </footer>
+
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+
+    function check() {
+      let checkCodeElem = document.getElementById('check-code');
+
+      if (typeof AlgoSigner !== 'undefined') {
+        checkCodeElem.innerHTML = 'AlgoSigner is installed.';
+      } else {
+        checkCodeElem.innerHTML = 'AlgoSigner is NOT installed.';
+      }
+    }
+
+    function connect() {
+      let connectCodeElem = document.getElementById('connect-code');
+
+      AlgoSigner.connect()
+      .then((d) => {
+        connectCodeElem.innerHTML = JSON.stringify(d, null, 2);
+      })
+      .catch((e) => {
+        console.error(e);
+        connectCodeElem.innerHTML = JSON.stringify(e, null, 2);
+      })
+      .finally(() => {
+        hljs.highlightBlock(connectCodeElem);
+      });
+    }
+    
+    function accounts(){
+      let accountsCodeElem = document.getElementById('accounts-code');
+
+      AlgoSigner.accounts({
+        ledger: 'TestNet'
+      })
+      .then((d) => {
+        accounts = d;
+        accountsCodeElem.innerHTML = JSON.stringify(d, null, 2);
+      })
+      .catch((e) => {
+        console.error(e);
+        accountsCodeElem.innerHTML = JSON.stringify(d, null, 2);
+      })
+      .finally(() => {
+        hljs.highlightBlock(accountsCodeElem);
+      });
+    }
+
+    function status(){
+      let statusCodeElem = document.getElementById('status-code');
+
+      AlgoSigner.algod({
+        ledger: 'TestNet',
+        path: '/v2/status'
+      })
+      .then((d) => {
+        statusCodeElem.innerHTML = JSON.stringify(d, null, 2);
+      })
+      .catch((e) => {
+        console.error(e);
+        statusCodeElem.innerHTML = JSON.stringify(e, null, 2);
+      })
+      .finally(() => {
+        hljs.highlightBlock(statusCodeElem);
+      });
+    }
+
+    function assets(){
+      let assetsCodeElem = document.getElementById('assets-code');
+
+      const name = document.getElementById('name').value;
+      const limit = document.getElementById('limit').value;
+
+      AlgoSigner.indexer({
+        ledger: 'TestNet',
+        path: `/v2/assets?name=${name}&limit=${limit}`,
+      })
+      .then((d) => {
+        assetsCodeElem.innerHTML = JSON.stringify(d, null, 2);
+      })
+      .catch((e) => {
+        console.error(e);
+        assetsCodeElem.innerHTML = JSON.stringify(e, null, 2);
+      })
+      .finally(() => {
+        hljs.highlightBlock(assetsCodeElem);
+      });
+    }
+    
+    document.getElementById('check').addEventListener('click', check);
+    document.getElementById('connect').addEventListener('click', connect);
+    document.getElementById('accounts').addEventListener('click', accounts);
+    document.getElementById('status').addEventListener('click', status);
+    document.getElementById('assets').addEventListener('click', assets);
+  </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+// weather comfort erupt verb pet range endorse exhibit tree brush crane man
+//weather comfort erupt verb pet range endorse exhibit tree brush crane man weather weather tree
+// echo -n "weather comfort erupt verb pet range endorse exhibit tree brush crane man weather weather tree" | wc
+// python3 -c "import hashlib;import base64;print(base64.b64encode(hashlib.sha256(str('weather comfort erupt verb pet range endorse exhibit tree brush crane man weather weather tree').encode('utf-8')).digest()).decode('utf-8'))"
+//phrase.teal: DPXZMPZWGA3TSSPRJNK6OQJ66VSJLOD2ZY3XWLXM2A6WI2ADTUEKJXLULA
+
+//echo -n "weather comfort erupt verb pet range endorse exhibit tree brush crane man weather weather tree" | base64
+//d2VhdGhlciBjb21mb3J0IGVydXB0IHZlcmIgcGV0IHJhbmdlIGVuZG9yc2UgZXhoaWJpdCB0cmVlIGJydXNoIGNyYW5lIG1hbg==
+
+//d2VhdGhlciBjb21mb3J0IGVydXB0IHZlcmIgcGV0IHJhbmdlIGVuZG9yc2UgZXhoaWJpdCB0cmVlIGJydXNoIGNyYW5lIG1hbg==
+
+//goal clerk send -a 30000 --from-program passphrase.teal  -c //KRYU5VJD5VZ6SHH3GO4TVPAYGNQGYC7QMGJ63U6676U2UW3TGSC4PQNVZQ --argb64 //d2VhdGhlciBjb21mb3J0IGVydXB0IHZlcmIgcGV0IHJhbmdlIGVuZG9yc2UgZXhoaWJpdCB0cmVlIGJydXNoIGNyYW5lIG1hbiB3ZWF0aGVyIHdlYX//RoZXIgdHJlZQ== -t KRYU5VJD5VZ6SHH3GO4TVPAYGNQGYC7QMGJ63U6676U2UW3TGSC4PQNVZQ -o out.txn -d //var/lib/algorand_testnet
+
+//goal clerk rawsend -f out.txn -d ~/var/lib/algorand_testnet
+
+// goal account balance -a  DPXZMPZWGA3TSSPRJNK6OQJ66VSJLOD2ZY3XWLXM2A6WI2ADTUEKJXLULA -d $ALGORAND_DATA
+// Check the Fee is resonable
+// In this case 10,000 microalgos
+//Raw transaction ID WX5RADYQ2JKCV42L5TMXNIOHHNUBVI2QKUEC3RCAATQYN63HMKKQ issued
+//Transaction WX5RADYQ2JKCV42L5TMXNIOHHNUBVI2QKUEC3RCAATQYN63HMKKQ still pending as of round 17849802
+//Transaction WX5RADYQ2JKCV42L5TMXNIOHHNUBVI2QKUEC3RCAATQYN63HMKKQ committed in round 17849804
+
+txn Fee
+int 10000
+<=
+// Check the length of the passphrase is correct
+arg 0
+len
+int 94
+==
+&&
+// The sha256 value of the passphrase
+arg 0
+sha256
+byte base64 lcpy5GMYQsMZz+5IQn4fg/fGsdpWW3hK+n5jEgf/jRA= 
+==
+&&
+// Make sure the CloseRemainderTo is not set
+txn CloseRemainderTo
+txn Receiver 
+==
+&&

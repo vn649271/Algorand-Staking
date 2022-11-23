@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/htdocs/assets/css/main.css" />
+    <script type="text/javascript" src="/htdocs/assets/js/core/jquery.min.js"></script>
+    <script type="text/javascript" src="/htdocs/wallet/wallet/wallet-connect.js"></script>
+    <script type="text/javascript" src="/htcods/wallet/wallet/delegate-sign-txn.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class='container'>
+        <div>
+            <div class='address-container'>
+                <div class='address-title'>Stakeholder</div>
+                <div class='label-div'>
+                    <span>Address:</span>
+                    <p>
+                        <input type='text' id="stakeholder-address" class="address-box" placeholder="Stakeholder Address" value="657HWR6TL6E5VTSXQVDGPVU4TSDHPMFNPOTYXKXRRY2RBO4ESZK467J7MI" />
+                    </p>
+                </div>
+                <div class='label-div'>Mnemonic:<br>
+                    <p>
+                        <input type='text' id="stakeholder-mnemonic" class="key-box" placeholder="Stakeholder Mnemonic" value='jaguar over before resist settle combine language man mammal call slush split rescue theme donate poverty chicken oblige inhale gallery cable daring home abandon hotel'/>
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class='address-container'>
+                <div class='label-div'>Amount:
+                    <p>
+                        <input type='text' id="amount" class="amount-box" placeholder="Amouont" />
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class='button-container gray-text'>
+            <button id="send-button" class="button">Stake</button>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#send-button').click(function(e) {
+                let stakeholderAddress = $('#stakeholder-address').val();
+                let stakeholderMnemonic = $('#stakeholder-mnemonic').val();
+                let amount = $('#amount').val();
+                let now = new Date();
+                $.post(
+                    "/send", {
+                        stakeholder: stakeholderAddress,
+                        stakeholderMnemonic: stakeholderMnemonic,
+                        amount: amount,
+                        now: now
+                    },
+                    function(data) {
+                        alert("Data Loaded: " + data);
+                    }
+                );
+                $('#amount').val("");
+                alert('Sent algos successfully');
+            });
+        })
+    </script>
+</body>
+
+</html>

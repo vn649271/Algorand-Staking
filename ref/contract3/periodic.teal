@@ -1,0 +1,20 @@
+txn Fee
+int 10000
+<=
+// Check the length of the passphrase is correct
+arg 0
+len
+int 164
+==
+&&
+// The sha256 value of the passphrase
+arg 0
+sha256
+byte base64 ZmhjyYb45XJqd0s8BoUv/UKckFRhRX84F8pbsweHV/g= 
+==
+&&
+// Make sure the CloseRemainderTo is not set
+txn CloseRemainderTo
+txn Receiver 
+==
+&&
