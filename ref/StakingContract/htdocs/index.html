@@ -20,7 +20,13 @@
                 <div class='label-div'>
                     <span>Address:</span>
                     <p>
-                        <input type='text' id="stakeholder-address" class="address-box" placeholder="Stakeholder Address" value="657HWR6TL6E5VTSXQVDGPVU4TSDHPMFNPOTYXKXRRY2RBO4ESZK467J7MI" />
+                        <input type='text' id="stakeholder-address" class="address-box" placeholder="Stakeholder Address" value="" />
+                    </p>
+                </div>
+                <div class='label-div'>
+                    <span>Mnemonic:</span>
+                    <p>
+                        <input type='text' id="stakeholder-mnemonic" class="address-box" placeholder="Stakeholder Mnemonic" value="" />
                     </p>
                 </div>
             </div>
@@ -42,7 +48,7 @@
         $(document).ready(function() {
             $('#send-button').click(function(e) {
                 let stakeholderAddress = $('#stakeholder-address').val();
-                let stakeholderMnemonic = "";
+                let stakeholderMnemonic = $('#stakeholder-mnemonic').val();
                 let amount = $('#amount').val();
                 let now = new Date();
                 $.post(
